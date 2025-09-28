@@ -25,19 +25,14 @@ int main() { return 0; }
 #error Not MDLC
 #endif" HAS_MDLC)
 
-message(STATUS "HAS_GLIBC=${HAS_GLIBC}")
-message(STATUS "HAS_BIONIC=${HAS_BIONIC}")
-message(STATUS "HAS_MUSL=${HAS_MUSL}")
-message(STATUS "HAS_MDLC=${HAS_MDLC}")
-
 if (HAS_GLIBC)
-    message(STATUS "Building against GNU C Library (GLIBC)")
+    message(STATUS "Detected C library: GNU C Library (GLIBC)")
 elseif (HAS_BIONIC)
-    message(STATUS "Building against Bionic")
+    message(STATUS "Detected C library: Bionic")
 elseif (HAS_MUSL)
-    message(STATUS "Building against Musl C Library")
+    message(STATUS "Detected C library: Musl C Library")
 elseif (HAS_MDLC)
-    message(STATUS "Building against Modular C (MDLC)")
+    message(STATUS "Detected C library: Modular C (MDLC)")
 else ()
     message(WARNING "C Library has not been detected. Make sure that the C library has been set up properly, and that the building works as expected.")
 endif ()
